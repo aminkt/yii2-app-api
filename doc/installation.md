@@ -26,18 +26,18 @@ You only need to do these once for all.
 for rest `/path/to/yii-application/` and using the URL `http://localhost/`
 
 Use `demo/demo` to login into the application on [http://localhost/v1/user/login](http://localhost/v1/user/login). See 
-[`/core/rest/config/url-rules.php`](/core/rest/config/url-rules.php) for more info by URL
+[`/core/rest/config/routes.php`](/core/rest/config/routes.php) for more info by URL
 
 ### URL RULE
 
-See [/core/rest/config/url-rules.php](/core/rest/config/url-rules.php)
+See [/core/rest/config/routes.php](/core/rest/config/routes.php)
 
 API available:
 
 ```php
 // version 1
-OPTIONS /index.php?r=v1/user/login
-POST /index.php?r=v1/user/login
+OPTIONS /index.php?r=v1
+GET /index.php?r=v1
 ```
 
 You can hide `index.php` from URL. For that see [server.md](server.md)

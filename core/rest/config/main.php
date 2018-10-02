@@ -74,7 +74,7 @@ return [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
-            'rules' => require('url-rules.php')
+            'rules' => require('routes.php')
         ],
     ],
     'params' => $params,
