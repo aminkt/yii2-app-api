@@ -27,7 +27,7 @@ return [
 //                header("Access-Control-Allow-Headers: content-type, authorization, access-control-allow-headers, access-control-allow-method, access-control-allow-credentials");
 //                header("Access-Control-Allow-Credentials: true");
 
-                $debugRoute = preg_match('%debug%', Yii::$app->getRequest()->getPathInfo());
+                $debugRoute = preg_match('%debug|gii%', Yii::$app->getRequest()->getPathInfo());
                 if (!(YII_DEBUG and $debugRoute)) {
                     $response = $event->sender;
                     if ($response->data !== null) {
