@@ -3,7 +3,7 @@ return [
     'id' => 'app-rest-tests',
     'components' => [
         'assetManager' => [
-            'basePath' => __DIR__ . '/../web/assets',
+            'basePath' => dirname(dirname(dirname(__DIR__))) . '/assets',
         ],
         'urlManager' => [
             'showScriptName' => true,
