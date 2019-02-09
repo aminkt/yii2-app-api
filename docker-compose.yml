@@ -1,29 +1,20 @@
 version: "3"
 services:
     api:
-        image: navidonskis/nginx-php7.1
-        ports: 
-            - "80:80"
-        # container_name: api
-        restart: always
-        links:
-            - db
-        networks:
-            - default
+      build:
+        dockerfile: core/environments/docker/development/Dockerfile
+        context: .
+      container_name: "api"
+      ports:
+        - 80:80
+      tty: true
         volumes:
-          # 1. mount your workdir path
-          - .:/var/www
-          # 2. mount your configuration of site
-          # - /mnt/docker/nginx/sites-enabled:/etc/nginx/sites-enabled
-          # 3. if you have settings for ssmtp
-          # - /mnt/docker/nginx/ssmtp/ssmtp.conf:/etc/ssmtp/ssmtp.conf
-          # 4. if you want to override php.ini file
-          # - /mnt/docker/php/custom.ini:/etc/php/7.1/fpm/conf.d/custom.ini
-        # 5. have a cronjob tasks? run the command...
-        # command:
-          # remember to escape variables dollar sign with duplication $$ instead $
-          # - '* * * * * echo "Hello $$(date)" >> /var/log/cron.log 2>&1'
-          # - '* * * * * echo "Hello world !" >> /var/log/cron.log 2>&1'
+          - .:/app
+          - ./core/environments/docker/config/nginx.conf:/etc/nginx/sites-enabled/api
+      depends_on:
+        - db
+      links:
+        - db
     db:
         image: mysql:latest
         ports: 
